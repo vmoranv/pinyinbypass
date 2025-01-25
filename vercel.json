@@ -7,7 +7,11 @@
     },
     {
       "src": "front/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "cd front && npm install && npm run build",
+        "outputDirectory": "front/build"
+      }
     }
   ],
   "rewrites": [
@@ -19,5 +23,9 @@
       "source": "/(.*)",
       "destination": "/front/public/index.html"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "REACT_APP_API_URL": "/api"
+  }
 }

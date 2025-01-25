@@ -79,7 +79,8 @@ const GradientText = ({ children, ...props }: { children: React.ReactNode }) => 
 // 背景渐变组件
 const GradientBackground = motion(Box);
 
-const API_URL = 'http://localhost:3001/api';
+// API 地址配置
+const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 // 时间线接口
 interface Timeline {
