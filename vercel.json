@@ -1,29 +1,34 @@
 {
   "version": 2,
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "front/build",
   "builds": [
     {
-      "src": "server/server.js",
+      "src": "front/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "server/src/server.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "front/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     }
   ],
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/server/server.js"
+      "destination": "/server/src/server.ts"
     },
     {
       "source": "/(.*)",
-      "destination": "/front/public/index.html"
-    }
-  ],
-  "routes": [
-    {
-      "handle": "filesystem"
+      "destination": "/front/server.js"
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "PORT": "3000"
   }
 }
