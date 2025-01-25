@@ -5,9 +5,9 @@
       "runtime": "@vercel/node@latest"
     }
   },
+  "installCommand": "npm --prefix front install && npm --prefix server install",
+  "buildCommand": "npm --prefix front run build",
   "outputDirectory": "front/build",
-  "buildCommand": "cd front && npm install && npm run build",
-  "installCommand": "cd front && npm install && cd ../server && npm install",
   "rewrites": [
     {
       "source": "/api/:path*",
