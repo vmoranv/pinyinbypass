@@ -8,17 +8,19 @@
       "use": "@vercel/node"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "server/server.js"
-    },
-    {
       "handle": "filesystem"
-    },
-    {
-      "src": "/[^.]+",
-      "dest": "front/build/index.html"
     }
   ],
   "env": {
