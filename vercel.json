@@ -2,19 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "front/server.js",
-      "use": "@vercel/node"
-    },
-    {
       "src": "server/src/server.ts",
       "use": "@vercel/node"
     },
     {
       "src": "front/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "use": "@vercel/static-build"
     }
   ],
   "rewrites": [
@@ -24,11 +17,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/front/server.js"
+      "destination": "/front/public/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "PORT": "3000"
-  }
+  ]
 }
