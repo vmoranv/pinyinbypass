@@ -1,13 +1,8 @@
 {
   "version": 2,
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "front/build",
   "builds": [
-    {
-      "src": "front/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
     {
       "src": "server/server.js",
       "use": "@vercel/node"
@@ -19,15 +14,11 @@
       "dest": "server/server.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "front/$1"
-    },
-    {
       "handle": "filesystem"
     },
     {
       "src": "/[^.]+",
-      "dest": "front/index.html"
+      "dest": "front/build/index.html"
     }
   ],
   "env": {

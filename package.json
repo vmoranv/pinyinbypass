@@ -1,0 +1,17 @@
+{
+  "name": "pinyin-bypass",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "front",
+    "server"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd front && npm install && cd ../server && npm install",
+    "build": "cd front && npm run build",
+    "start": "cd server && npm start",
+    "dev:front": "cd front && npm start",
+    "dev:server": "cd server && npm start",
+    "vercel-build": "cd front && npm install && npm run build"
+  }
+}
