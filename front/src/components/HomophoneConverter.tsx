@@ -80,7 +80,12 @@ const GradientText = ({ children, ...props }: { children: React.ReactNode }) => 
 const GradientBackground = motion(Box);
 
 // API 地址配置
-const API_URL = process.env.REACT_APP_API_URL || '/api';
+const isVercel = process.env.VERCEL === '1';
+const API_URL = isVercel ? '/api' : 'http://localhost:3001/api';
+
+// 调试信息
+console.log('当前环境:', isVercel ? 'Vercel' : '本地开发');
+console.log('API 地址:', API_URL);
 
 // 时间线接口
 interface Timeline {
